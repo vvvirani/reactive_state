@@ -2,6 +2,11 @@
   <img src="assets/reactive_flutter_banner.png" alt="reactive_flutter banner" />
 </p>
 
+[![pub package](https://img.shields.io/pub/v/reactive_flutter.svg)](https://pub.dev/packages/reactive_flutter)
+[![likes](https://img.shields.io/pub/likes/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
+[![popularity](https://img.shields.io/pub/popularity/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
+[![pub points](https://img.shields.io/pub/points/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
+
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
@@ -812,18 +817,6 @@ dart format .
 
 ---
 
-# Badges
-
-Add these badges to the top of your README after publishing:
-
-```md
-[![pub package](https://img.shields.io/pub/v/reactive_flutter.svg)](https://pub.dev/packages/reactive_flutter)
-[![likes](https://img.shields.io/pub/likes/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
-[![popularity](https://img.shields.io/pub/popularity/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
-[![pub points](https://img.shields.io/pub/points/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
-```
-
----
 
 # License
 
