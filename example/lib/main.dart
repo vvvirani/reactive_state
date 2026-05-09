@@ -1,7 +1,7 @@
 import 'package:example/pagination_list_view_page.dart';
 import 'package:example/second_counter_page.dart';
 import 'package:flutter/material.dart';
-import 'package:reactive_state/reactive_state.dart';
+import 'package:reactive_flutter/reactive_flutter.dart';
 
 void main() {
   CounterController.register();

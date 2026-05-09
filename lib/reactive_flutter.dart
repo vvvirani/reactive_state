@@ -12,7 +12,7 @@
 /// ---------------------------------------------------------------------------
 ///
 /// ```dart
-/// import 'package:reactive_state/reactive_state.dart';
+/// import 'package:reactive_flutter/reactive_flutter.dart';
 ///
 /// final Reactive<int> counter = Reactive<int>(0);
 /// final Reactive<String> name = Reactive<String>('Flutter');

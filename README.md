@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/reactive_state_banner.png" alt="reactive_state banner" />
+  <img src="assets/reactive_flutter_banner.png" alt="reactive_flutter banner" />
 </p>
 
 - [About](#about)
@@ -48,7 +48,7 @@
 
 A lightweight auto-tracking reactive state management library for Flutter.
 
-`reactive_state` provides:
+`reactive_flutter` provides:
 
 - Reactive state containers
 - Automatic widget rebuild tracking
@@ -79,7 +79,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  reactive_state: latest_version
+  reactive_flutter: latest_version
 ```
 
 Then run:
@@ -91,7 +91,7 @@ flutter pub get
 Import the package:
 
 ```dart
-import 'package:reactive_state/reactive_state.dart';
+import 'package:reactive_flutter/reactive_flutter.dart';
 ```
 
 ---
@@ -424,7 +424,7 @@ pagination.isEmpty
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:reactive_state/reactive_state.dart';
+import 'package:reactive_flutter/reactive_flutter.dart';
 
 final Reactive<int> counter = Reactive<int>(0);
 
@@ -520,9 +520,9 @@ class MyApp extends StatelessWidget {
 
 ---
 
-# Why reactive_state?
+# Why reactive_flutter?
 
-`reactive_state` focuses on simplicity.
+`reactive_flutter` focuses on simplicity.
 
 Unlike larger state management solutions, it provides:
 
@@ -547,7 +547,7 @@ Perfect for:
 
 # Performance
 
-`reactive_state` is designed to stay lightweight and fast.
+`reactive_flutter` is designed to stay lightweight and fast.
 
 ## Why it performs well
 
@@ -583,7 +583,7 @@ Automatic Rebuild
 
 # Comparison
 
-| Feature | reactive_state | GetX | Riverpod | Provider |
+| Feature | reactive_flutter | GetX | Riverpod | Provider |
 |---|---|---|---|---|
 | Auto tracking | ✅ | ⚠️ Partial | ❌ | ❌ |
 | Code generation | ❌ | ❌ | ⚠️ Optional | ❌ |
@@ -731,7 +731,7 @@ final ApiService api = ReactiveInjector.find<ApiService>();
 
 ## Does this use code generation?
 
-No. `reactive_state` works without generators or build_runner.
+No. `reactive_flutter` works without generators or build_runner.
 
 ---
 
@@ -794,7 +794,7 @@ Contributions are welcome.
 
 ```bash
 git clone <repository>
-cd reactive_state
+cd reactive_flutter
 flutter pub get
 ```
 
@@ -817,10 +817,10 @@ dart format .
 Add these badges to the top of your README after publishing:
 
 ```md
-[![pub package](https://img.shields.io/pub/v/reactive_state.svg)](https://pub.dev/packages/reactive_state)
-[![likes](https://img.shields.io/pub/likes/reactive_state)](https://pub.dev/packages/reactive_state/score)
-[![popularity](https://img.shields.io/pub/popularity/reactive_state)](https://pub.dev/packages/reactive_state/score)
-[![pub points](https://img.shields.io/pub/points/reactive_state)](https://pub.dev/packages/reactive_state/score)
+[![pub package](https://img.shields.io/pub/v/reactive_flutter.svg)](https://pub.dev/packages/reactive_flutter)
+[![likes](https://img.shields.io/pub/likes/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
+[![popularity](https://img.shields.io/pub/popularity/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
+[![pub points](https://img.shields.io/pub/points/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
 ```
 
 ---

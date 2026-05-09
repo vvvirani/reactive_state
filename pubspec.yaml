@@ -1,7 +1,7 @@
-name: reactive_state
+name: reactive_flutter
 description: "A lightweight auto-tracking reactive state management library for Flutter."
 version: 1.0.0
-homepage: "https://github.com/vvvirani/reactive_state"
+homepage: "https://github.com/vvvirani/reactive_flutter"
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

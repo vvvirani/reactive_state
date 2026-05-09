@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:example/models/post.dart';
 import 'package:flutter/material.dart';
-import 'package:reactive_state/reactive_state.dart';
+import 'package:reactive_flutter/reactive_flutter.dart';
 
 class PaginationListViewPage extends StatefulWidget {
   const PaginationListViewPage({super.key});

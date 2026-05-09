@@ -1,4 +1,4 @@
-import 'package:reactive_state/src/reactive.dart';
+import 'package:reactive_flutter/src/reactive.dart';
 
 import 'pagination_result.dart';
 import 'pagination_state.dart';
@@ -15,8 +15,8 @@ import 'pagination_state.dart';
 /// Returns a [PaginationResult] containing:
 /// - fetched items
 /// - next cursor
-typedef CursorFetcher<T, C> =
-    Future<PaginationResult<T, C>> Function(int perPage, C? cursor);
+typedef CursorFetcher<T, C> = Future<PaginationResult<T, C>> Function(
+    int perPage, C? cursor);
 
 /// ---------------------------------------------------------------------------
 /// Reactive cursor pagination
@@ -48,8 +48,8 @@ class ReactiveCursorPagination<T, C>
   ReactiveCursorPagination({
     required this.perPage,
     required CursorFetcher<T, C> fetcher,
-  }) : _fetcher = fetcher,
-       super(CursorPaginationState());
+  })  : _fetcher = fetcher,
+        super(CursorPaginationState());
 
   /// Number of items fetched per request.
   final int perPage;

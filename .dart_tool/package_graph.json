@@ -1,10 +1,10 @@
 {
   "roots": [
-    "reactive_state"
+    "reactive_flutter"
   ],
   "packages": [
     {
-      "name": "reactive_state",
+      "name": "reactive_flutter",
       "version": "1.0.0",
       "dependencies": [
         "flutter"

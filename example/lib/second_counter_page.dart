@@ -1,6 +1,6 @@
 import 'package:example/main.dart';
 import 'package:flutter/material.dart';
-import 'package:reactive_state/reactive_state.dart';
+import 'package:reactive_flutter/reactive_flutter.dart';
 
 class SecondCounterPage extends StatefulWidget {
   const SecondCounterPage({super.key});

@@ -171,7 +171,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-  reactive_state:
+  reactive_flutter:
     dependency: "direct main"
     description:
       path: ".."

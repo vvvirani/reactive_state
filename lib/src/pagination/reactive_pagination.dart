@@ -1,4 +1,4 @@
-import 'package:reactive_state/src/reactive.dart';
+import 'package:reactive_flutter/src/reactive.dart';
 
 import 'pagination_state.dart';
 
@@ -39,8 +39,8 @@ typedef PageFetcher<T> = Future<List<T>> Function(int page, int perPage);
 /// ```
 class ReactivePagination<T> extends Reactive<PaginationState<T>> {
   ReactivePagination({required this.perPage, required PageFetcher<T> fetcher})
-    : _fetcher = fetcher,
-      super(PaginationState());
+      : _fetcher = fetcher,
+        super(PaginationState());
 
   /// Number of items fetched per request.
   final int perPage;
