@@ -6,3 +6,7 @@
 - Dependency injection
 - Page-based pagination
 - Cursor-based pagination
+
+## 1.0.1
+
+- Updated READ.me
