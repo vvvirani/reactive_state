@@ -9,4 +9,8 @@
 
 ## 1.0.1
 
-- Updated READ.me
+- Updated README.me
+
+## 1.0.2
+
+- Fixed README banner image

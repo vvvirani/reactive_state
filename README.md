@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="assets/reactive_flutter_banner.png" alt="reactive_flutter banner" />
-</p>
+![reactive_flutter banner](https://raw.githubusercontent.com/vvvirani/reactive_flutter/main/assets/reactive_flutter_banner.png)
 
 [![pub package](https://img.shields.io/pub/v/reactive_flutter.svg)](https://pub.dev/packages/reactive_flutter)
 [![likes](https://img.shields.io/pub/likes/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
