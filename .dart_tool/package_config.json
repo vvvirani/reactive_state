@@ -161,7 +161,7 @@
       "name": "reactive_state",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.11"
+      "languageVersion": "3.0"
     }
   ],
   "generator": "pub",

@@ -1,2 +1,7 @@
-/.dart_tool
+.dart_tool/
 .DS_Store
+build/
+.dart_tool/package_config.json
+.dart_tool/package_graph.json
+.dart_tool/version
+lib/src/.DS_Store
