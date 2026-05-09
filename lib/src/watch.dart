@@ -49,10 +49,7 @@ class Watch extends StatefulWidget {
   /// Builder executed whenever tracked dependencies change.
   final Widget Function() builder;
 
-  const Watch({
-    super.key,
-    required this.builder,
-  });
+  const Watch({super.key, required this.builder});
 
   @override
   State<Watch> createState() => _WatchState();
