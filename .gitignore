@@ -5,3 +5,4 @@ build/
 .dart_tool/package_graph.json
 .dart_tool/version
 lib/src/.DS_Store
+.flutter-plugins-dependencies

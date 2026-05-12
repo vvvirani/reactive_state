@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-import 'reactive_base.dart';
-import 'reactive_tracker.dart';
+import '../reactive_base.dart';
+import '../reactive_tracker.dart';
 
 /// ---------------------------------------------------------------------------
 /// Reactive widget observer

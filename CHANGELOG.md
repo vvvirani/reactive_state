@@ -1,16 +1,48 @@
-## 1.0.0
+## 1.0.5
 
-- Initial release
-- Reactive state container
-- Watch widget
-- Dependency injection
-- Page-based pagination
-- Cursor-based pagination
+- Add `ReactiveIsolateTask` for reactive background isolate execution
+- Add `ReactiveTaskState` with loading, data, and error handling
+- Add `ReactiveTaskPayload` for reusable isolate task definitions
+- Add `run()` and `runOrThrow()` isolate execution methods
+- Add reactive isolate state tracking
+- Add reusable generic isolate task architecture
+- Improve heavy task handling without blocking UI
+- Improve large file reading and parsing performance
+- Add isolate task reset support
+- Add documentation and examples for isolate usage
 
-## 1.0.1
+## 1.0.4
 
-- Updated README.me
+- Fix `LoggerView` filter — ALL mode now correctly shows all lines
+- Fix `_visible` getter reactive tracking inside `Watch`
+- Fix `No Overlay widget found` error in `LoggerOverlay`
+- Fix `Row` and `Column` overflow in `LoggerView`
+- Remove `Tooltip` dependency on `Overlay` ancestor
+- Add `useOverlay` parameter to `LoggerView.open()`
+
+## 1.0.3
+
+- Add `ReactiveLogger` with plain `.log` file output
+- Add `LoggerView` with level-based color coding
+- Add `LoggerOverlay` floating debug button
+- Add `ClearPolicy` — daily, weekly, monthly, 3 month, 6 month auto-clear
+- Add `LogLevel` — debug, info, warning, error, fatal
 
 ## 1.0.2
 
-- Fixed README banner image
+- Add `ReactivePagination` with `PaginationState` and `copyWith`
+- Add `ReactiveCursorPagination` for Firebase, GraphQL, Supabase
+- Add `ReactiveSearch` with debounce, min length, stale guard
+
+## 1.0.1
+
+- Add `ReactiveInjector` singleton and transient DI
+- Add `Inject` static facade
+- Fix `PaginationState` `List<Never>` type error
+
+## 1.0.0
+
+- Initial release
+- `Reactive<T>` auto-tracking state container
+- `Watch` widget with zero-config dependency detection
+- `ReactiveBase` and `ReactiveTracker` internals

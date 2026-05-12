@@ -2,7 +2,7 @@ import 'reactive_base.dart';
 import 'reactive_tracker.dart';
 
 /// ---------------------------------------------------------------------------
-/// Reactive state container
+/// Reactive state management
 /// ---------------------------------------------------------------------------
 
 /// A lightweight reactive state holder.
@@ -37,7 +37,6 @@ class Reactive<T> extends ReactiveBase {
   /// register itself as a dependency.
   T get value {
     ReactiveTracker.record(this);
-
     return _value;
   }
 
@@ -47,9 +46,7 @@ class Reactive<T> extends ReactiveBase {
   /// is different from the current value.
   set value(T newValue) {
     if (_value == newValue) return;
-
     _value = newValue;
-
     notify();
   }
 

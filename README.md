@@ -1,100 +1,152 @@
-![reactive_flutter banner](https://raw.githubusercontent.com/vvvirani/reactive_flutter/main/assets/reactive_flutter_banner.png)
+![reactive\_flutter banner](https://raw.githubusercontent.com/vvvirani/reactive_flutter/main/assets/reactive_flutter_banner.png)
 
 [![pub package](https://img.shields.io/pub/v/reactive_flutter.svg)](https://pub.dev/packages/reactive_flutter)
 [![likes](https://img.shields.io/pub/likes/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
 [![popularity](https://img.shields.io/pub/popularity/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
 [![pub points](https://img.shields.io/pub/points/reactive_flutter)](https://pub.dev/packages/reactive_flutter/score)
 
-- [About](#about)
-- [Features](#features)
-- [Installation](#installation)
-- [Reactive State](#reactive-state)
-  - [Create Reactive Values](#create-reactive-values)
-  - [Reading Values](#reading-values)
-  - [Updating Values](#updating-values)
-  - [Silent Updates](#silent-updates)
-- [Watch Widget](#watch-widget)
-  - [Basic Example](#basic-example)
-  - [Multiple Reactive Dependencies](#multiple-reactive-dependencies)
-  - [Conditional Tracking](#conditional-tracking)
-  - [Nested Watch Example](#nested-watch-example)
-- [Dependency Injection](#dependency-injection)
-  - [Register Singleton](#register-singleton)
-  - [Register Transient](#register-transient)
-  - [Check Registration](#check-registration)
-  - [Reset Singleton](#reset-singleton)
-  - [Unregister Dependency](#unregister-dependency)
-  - [Clear All Dependencies](#clear-all-dependencies)
-- [Page-Based Pagination](#page-based-pagination)
-  - [Initialize Pagination](#initialize-pagination)
-  - [Refresh Pagination](#refresh-pagination)
-  - [Load More](#load-more)
-  - [Watch Pagination State](#watch-pagination-state)
-  - [Scroll Pagination Example](#scroll-pagination-example)
-- [Cursor-Based Pagination](#cursor-based-pagination)
-  - [PaginationResult](#paginationresult)
-  - [Cursor Pagination State](#cursor-pagination-state)
-- [Architecture](#architecture)
-- [Performance](#performance)
-- [Comparison](#comparison)
-- [Advanced Examples](#advanced-reactive-example)
-- [Unit Testing](#unit-testing-example)
-- [FAQ](#faq)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [Changelog](#changelog)
-- [License](#license)
+A lightweight auto-tracking reactive state management library for Flutter.
+
+`reactive_flutter` provides:
+
+* Reactive state containers
+* Automatic widget rebuild tracking
+* Lightweight dependency injection
+* Page-based pagination
+* Cursor-based pagination
+* Reactive search
+* Reactive logger
+* Minimal boilerplate
+* Zero code generation
+
+---
+
+# Wiki
+
+* [About](#about)
+* [Features](#features)
+* [Installation](https://pub.dev/packages/reactive_flutter/install)
+* [Quick Start](#quick-start)
+* [Reactive State](#reactive-state)
+
+  * [Create Reactive Values](#create-reactive-values)
+  * [Reading Values](#reading-values)
+  * [Updating Values](#updating-values)
+  * [Silent Updates](#silent-updates)
+* [Watch Widget](#watch-widget)
+
+  * [Basic Example](#basic-example)
+  * [Multiple Reactive Dependencies](#multiple-reactive-dependencies)
+  * [Conditional Tracking](#conditional-tracking)
+  * [Nested Watch Example](#nested-watch-example)
+* [Dependency Injection](#dependency-injection)
+
+  * [Register Singleton](#register-singleton)
+  * [Register Transient](#register-transient)
+  * [Check Registration](#check-registration)
+  * [Reset Singleton](#reset-singleton)
+  * [Unregister Dependency](#unregister-dependency)
+  * [Clear All Dependencies](#clear-all-dependencies)
+* [Page-Based Pagination](#page-based-pagination)
+
+  * [Initialize Pagination](#initialize-pagination)
+  * [Refresh Pagination](#refresh-pagination)
+  * [Load More](#load-more)
+  * [Watch Pagination State](#watch-pagination-state)
+  * [Scroll Pagination Example](#scroll-pagination-example)
+* [Cursor-Based Pagination](#cursor-based-pagination)
+
+  * [PaginationResult](#paginationresult)
+  * [Cursor Pagination State](#cursor-pagination-state)
+* [Reactive Search](#reactive-search)
+
+  * [Create Search Controller](#create-search-controller)
+  * [Debounced Search](#debounced-search)
+  * [Manual Search](#manual-search)
+  * [Clear Search](#clear-search)
+  * [Watch Search State](#watch-search-state)
+* [Reactive Isolate Tasks](#reactive-isolate-tasks)
+
+  * [Create Isolate Task](#create-isolate-task)
+  * [Run Task](#run-task)
+  * [Watch Task State](#watch-task-state)
+  * [Handle Errors](#handle-errors)
+  * [Heavy Task Example](#heavy-task-example)
+* [Reactive Logger](#reactive-logger)
+
+  * [Initialize Logger](#initialize-logger)
+  * [Write Logs](#write-logs)
+  * [Read Logs](#read-logs)
+  * [Clear Logs](#clear-logs)
+  * [Delete Logs](#delete-logs)
+  * [Logger State](#logger-state)
+* [API Overview](#api-overview)
+* [Performance](#performance)
+* [Architecture](#architecture)
+* [Comparison](#comparison)
+* [Best Practices](#best-practices)
+* [When to Use reactive_flutter](#when-to-use-reactive_flutter)
+* [Advanced Examples](#advanced-reactive-example)
+* [Unit Testing](#unit-testing-example)
+* [FAQ](#faq)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
 
 ---
 
 # About
 
-A lightweight auto-tracking reactive state management library for Flutter.
+`reactive_flutter` is designed to provide a lightweight and minimal reactive architecture for Flutter applications.
 
-`reactive_flutter` provides:
+It focuses on:
 
-- Reactive state containers
-- Automatic widget rebuild tracking
-- Lightweight dependency injection
-- Page-based pagination
-- Cursor-based pagination
-- Minimal boilerplate
-- Zero code generation
+* Simplicity
+* Performance
+* Automatic dependency tracking
+* Minimal boilerplate
+* Easy integration
 
 ---
 
 # Features
 
+```md
 ✅ Automatic dependency tracking  
 ✅ Lightweight and fast  
 ✅ No `BuildContext` required for state access  
 ✅ No manual dependency lists  
+✅ No code generation  
 ✅ Page-based pagination  
 ✅ Cursor-based pagination  
+✅ Reactive search with debounce  
+✅ Reactive logger  
 ✅ Simple dependency injection  
-✅ Easy to learn and use  
+✅ Easy to learn and use
+✅ Background isolate task execution  
+✅ Reactive isolate task state  
+✅ Heavy computation without UI freeze  
+✅ Generic isolate task payloads   
+```
 
 ---
 
-# Installation
-
-Add the package to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  reactive_flutter: latest_version
-```
-
-Then run:
-
-```bash
-flutter pub get
-```
-
-Import the package:
+# Quick Start
 
 ```dart
-import 'package:reactive_flutter/reactive_flutter.dart';
+final Reactive<int> counter = Reactive<int>(0);
+
+Watch(
+  builder: () {
+    return Text('${counter.value}');
+  },
+)
+```
+
+Update state:
+
+```dart
+counter.value++;
 ```
 
 ---
@@ -105,17 +157,21 @@ import 'package:reactive_flutter/reactive_flutter.dart';
 
 Whenever the value changes, widgets that depend on it automatically rebuild.
 
+---
+
 ## Create Reactive Values
 
 ```dart
 final Reactive<int> counter = Reactive<int>(0);
+
 final Reactive<String> title = Reactive<String>('Flutter');
+
 final Reactive<bool> isDark = Reactive<bool>(false);
 ```
 
 ---
 
-# Reading Values
+## Reading Values
 
 Use `.value` to access the current value.
 
@@ -125,19 +181,17 @@ print(counter.value);
 
 ---
 
-# Updating Values
-
-Update the value using `.value`.
+## Updating Values
 
 ```dart
-counter.value = counter.value + 1;
+counter.value++;
 
 isDark.value = true;
 ```
 
 ---
 
-# Silent Updates
+## Silent Updates
 
 Use `setSilent()` to update a value without notifying listeners.
 
@@ -153,6 +207,8 @@ counter.setSilent(100);
 
 No dependency list is required.
 
+---
+
 ## Basic Example
 
 ```dart
@@ -165,7 +221,7 @@ Watch(
 
 ---
 
-# Multiple Reactive Dependencies
+## Multiple Reactive Dependencies
 
 ```dart
 Watch(
@@ -173,7 +229,9 @@ Watch(
     return Column(
       children: [
         Text('${counter.value}'),
+
         Text(title.value),
+
         Switch(
           value: isDark.value,
           onChanged: (value) {
@@ -188,7 +246,7 @@ Watch(
 
 ---
 
-# Conditional Tracking
+## Conditional Tracking
 
 Dependencies are tracked automatically based on what is accessed during build.
 
@@ -196,13 +254,41 @@ Dependencies are tracked automatically based on what is accessed during build.
 Watch(
   builder: () {
     return isDark.value
-        ? Text('Dark Mode')
-        : Text('Light Mode');
+        ? const Text('Dark Mode')
+        : const Text('Light Mode');
   },
 )
 ```
 
-Only the reactive values used in the active branch are subscribed.
+Only the active branch is subscribed.
+
+---
+
+## Nested Watch Example
+
+```dart
+Watch(
+  builder: () {
+    return Column(
+      children: [
+        Watch(
+          builder: () {
+            return Text(
+              counter.value.toString(),
+            );
+          },
+        ),
+
+        Watch(
+          builder: () {
+            return Text(title.value);
+          },
+        ),
+      ],
+    );
+  },
+)
+```
 
 ---
 
@@ -212,26 +298,22 @@ Only the reactive values used in the active branch are subscribed.
 
 Supports:
 
-- Singleton registration
-- Transient registration
-- Dependency lookup
-- Reset
-- Unregister
-- Clear all
+* Singleton registration
+* Transient registration
+* Dependency lookup
+* Reset
+* Unregister
+* Clear all
 
 ---
 
-# Register Singleton
-
-Singletons reuse the same instance.
+## Register Singleton
 
 ```dart
-ReactiveInjector.singleton<ApiService>(
-  () => ApiService(),
-);
+ReactiveInjector.singleton<ApiService>(() => ApiService());
 ```
 
-Retrieve the dependency:
+Retrieve dependency:
 
 ```dart
 final ApiService api = ReactiveInjector.find<ApiService>();
@@ -239,19 +321,15 @@ final ApiService api = ReactiveInjector.find<ApiService>();
 
 ---
 
-# Register Transient
-
-Transient dependencies create a new instance every time.
+## Register Transient
 
 ```dart
-ReactiveInjector.transient<UserRepository>(
-  () => UserRepository(),
-);
+ReactiveInjector.transient<UserRepository>(() => UserRepository());
 ```
 
 ---
 
-# Check Registration
+## Check Registration
 
 ```dart
 final bool exists = ReactiveInjector.isRegistered<ApiService>();
@@ -259,9 +337,7 @@ final bool exists = ReactiveInjector.isRegistered<ApiService>();
 
 ---
 
-# Reset Singleton
-
-Clears the cached singleton instance.
+## Reset Singleton
 
 ```dart
 ReactiveInjector.reset<ApiService>();
@@ -269,7 +345,7 @@ ReactiveInjector.reset<ApiService>();
 
 ---
 
-# Unregister Dependency
+## Unregister Dependency
 
 ```dart
 ReactiveInjector.unregister<ApiService>();
@@ -277,7 +353,7 @@ ReactiveInjector.unregister<ApiService>();
 
 ---
 
-# Clear All Dependencies
+## Clear All Dependencies
 
 ```dart
 ReactiveInjector.clear();
@@ -288,6 +364,8 @@ ReactiveInjector.clear();
 # Page-Based Pagination
 
 `ReactivePagination<T>` helps manage paginated APIs using page numbers.
+
+---
 
 ## Create Pagination Controller
 
@@ -302,7 +380,7 @@ final ReactivePagination<User> pagination = ReactivePagination<User>(
 
 ---
 
-# Initialize Pagination
+## Initialize Pagination
 
 ```dart
 await pagination.init();
@@ -310,7 +388,7 @@ await pagination.init();
 
 ---
 
-# Refresh Pagination
+## Refresh Pagination
 
 ```dart
 await pagination.refresh();
@@ -318,7 +396,7 @@ await pagination.refresh();
 
 ---
 
-# Load More
+## Load More
 
 ```dart
 await pagination.fetchMore();
@@ -326,21 +404,7 @@ await pagination.fetchMore();
 
 ---
 
-# Access Pagination State
-
-```dart
-pagination.items
-pagination.isLoading
-pagination.isMoreLoading
-pagination.hasMore
-pagination.error
-pagination.totalFetched
-pagination.isEmpty
-```
-
----
-
-# Watch Pagination State
+## Watch Pagination State
 
 ```dart
 Watch(
@@ -352,11 +416,9 @@ Watch(
     return ListView.builder(
       itemCount: pagination.items.length,
       itemBuilder: (context, index) {
-        final user = pagination.items[index];
+        final User user = pagination.items[index];
 
-        return ListTile(
-          title: Text(user.name),
-        );
+        return ListTile(title: Text(user.name));
       },
     );
   },
@@ -365,26 +427,82 @@ Watch(
 
 ---
 
-# Cursor-Based Pagination
+## Scroll Pagination Example
 
-`ReactiveCursorPagination<T, C>` supports APIs that use cursors.
+```dart
+class UsersPage extends StatefulWidget {
+  const UsersPage({super.key});
 
-`C` represents the cursor type.
+  @override
+  State<UsersPage> createState() => _UsersPageState();
+}
 
-Examples:
+class _UsersPageState extends State<UsersPage> {
+  final ScrollController controller =ScrollController();
 
-- `String`
-- `int`
-- `DateTime`
-- `DocumentSnapshot` (Firebase Firestore)
-- Custom cursor model
+  final ReactivePagination<User> pagination = ReactivePagination<User>(
+    perPage: 20,
+    fetcher: (page, limit) async {
+      return api.fetchUsers(page, limit);
+    },
+  );
+
+  @override
+  void initState() {
+    super.initState();
+
+    pagination.init();
+
+    controller.addListener(() {
+      if (controller.position.pixels >=
+          controller.position.maxScrollExtent -
+              200) {
+        pagination.fetchMore();
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Watch(
+      builder: () {
+        return ListView.builder(
+          controller: controller,
+          itemCount: pagination.items.length,
+          itemBuilder: (context, index) {
+            final User user = pagination.items[index];
+
+            return ListTile(title: Text(user.name));
+          },
+        );
+      },
+    );
+  }
+}
+```
 
 ---
 
-# Create Cursor Pagination
+# Cursor-Based Pagination
+
+`ReactiveCursorPagination<T, C>` supports cursor-based APIs.
+
+Examples of cursor types:
+
+* `String`
+* `int`
+* `DateTime`
+* `DocumentSnapshot` (Firebase Firestore)
+* Firestore document snapshots
+* Custom models
+
+---
+
+## Create Cursor Pagination
 
 ```dart
-final ReactiveCursorPagination<User, String> pagination =
+final ReactiveCursorPagination<User, String>
+    pagination =
     ReactiveCursorPagination<User, String>(
   perPage: 20,
   fetcher: (perPage, cursor) async {
@@ -395,9 +513,7 @@ final ReactiveCursorPagination<User, String> pagination =
 
 ---
 
-# PaginationResult
-
-Cursor pagination fetchers return `PaginationResult<T, C>`.
+## PaginationResult
 
 ```dart
 PaginationResult<User, String>(
@@ -408,7 +524,7 @@ PaginationResult<User, String>(
 
 ---
 
-# Cursor Pagination State
+## Cursor Pagination State
 
 ```dart
 pagination.items
@@ -423,48 +539,236 @@ pagination.isEmpty
 
 ---
 
-# Example App
+# Reactive Search
+
+`ReactiveSearch<T>` provides debounced reactive searching.
+
+Features:
+
+* Debounced queries
+* Idle/loading/error states
+* Stale request protection
+* Automatic rebuilding
+
+---
+
+## Create Search Controller
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:reactive_flutter/reactive_flutter.dart';
+final ReactiveSearch<User> search =
+    ReactiveSearch<User>(
+  debounceMs: 500,
+  minLength: 2,
+  fetcher: (query) async {
+    return api.searchUsers(query);
+  },
+);
+```
 
-final Reactive<int> counter = Reactive<int>(0);
+---
 
-void main() {
-  runApp(const MyApp());
-}
+## Debounced Search
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+```dart
+TextField(onChanged: search.onChanged)
+```
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Reactive State'),
-        ),
-        body: Center(
-          child: Watch(
-            builder: () {
-              return Text(
-                '${counter.value}',
-                style: const TextStyle(fontSize: 40),
-              );
-            },
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            counter.value++;
-          },
-          child: const Icon(Icons.add),
-        ),
-      ),
+---
+
+## Manual Search
+
+```dart
+await search.search('flutter');
+```
+
+---
+
+## Clear Search
+
+```dart
+search.clear();
+```
+
+---
+
+## Watch Search State
+
+```dart
+Watch(
+  builder: () {
+    if (search.isLoading) {
+      return const CircularProgressIndicator();
+    }
+
+    if (search.isEmpty) {
+      return const Text('No results');
+    }
+
+    return ListView.builder(
+      itemCount: search.results.length,
+      itemBuilder: (context, index) {
+        final User user = search.results[index];
+        return ListTile(title: Text(user.name));
+      },
     );
+  },
+)
+```
+
+---
+
+# Reactive Isolate Tasks
+
+`ReactiveIsolateTask<T>` provides reactive isolate execution for heavy background operations.
+
+Features:
+
+* Background isolate execution
+* Reactive loading state
+* Reactive error handling
+* Generic reusable task payloads
+* Non-blocking UI updates
+
+# Create Isolate Task
+
+```dart
+final ReactiveIsolateTask<int> task = ReactiveIsolateTask<int>();
+```
+
+# Run Task
+
+```dart
+await task.run<int>(
+  ReactiveTaskPayload(input: 1000000, allback: heavyCalculation),
+);
+```
+
+# Watch Task State
+
+```dart
+Watch(
+  builder: () {
+    if (task.isLoading) {
+      return const CircularProgressIndicator();
+    }
+
+    if (task.error != null) {
+      return Text(task.error.toString());
+    }
+
+    return Text('Result: ${task.data}');
+  },
+)
+```
+
+# Handle Errors
+
+```dart
+await task.run<String>(
+  ReactiveTaskPayload(
+    input: 'data',
+    callback: (value) {
+      throw Exception('Something failed');
+    },
+  ),
+);
+
+print(task.error);
+```
+
+# Heavy Task Example
+
+```dart
+int heavyCalculation(int total) {
+  int sum = 0;
+
+  for (int i = 0; i < total; i++) {
+    sum += i;
   }
+
+  return sum;
 }
+
+await task.run<int>(
+  ReactiveTaskPayload(
+    input: 10000000,
+    callback: heavyCalculation,
+  ),
+);
+```
+
+---
+
+# Reactive Logger
+
+`ReactiveLogger` is a lightweight persistent logger with reactive state support.
+
+Features:
+
+* File-based logs
+* Auto-clear policies
+* Buffered writes
+* Console output
+* Error & stack trace logging
+* Reactive logger state
+
+---
+
+## Initialize Logger
+
+```dart
+final ReactiveLogger logger = ReactiveLogger(fileName: 'app_logs', clearPolicy: ClearPolicy.weekly);
+await logger.init();
+```
+
+---
+
+## Write Logs
+
+```dart
+logger.debug('Debug message');
+
+logger.info('User logged in');
+
+logger.warning('Slow API response');
+
+logger.error('Request failed', error: exception, stack: stackTrace);
+
+logger.fatal('Critical failure');
+```
+
+---
+
+## Read Logs
+
+```dart
+  LoggerView.open(context, logger: logger);
+```
+
+---
+
+## Clear Logs
+
+```dart
+await logger.clearFile();
+```
+
+---
+
+## Delete Logs
+
+```dart
+await logger.deleteFile();
+```
+
+---
+
+## Logger State
+
+```dart
+logger.value.totalLogs
+logger.value.lastCleared
+logger.value.isReady
 ```
 
 ---
@@ -473,78 +777,96 @@ class MyApp extends StatelessWidget {
 
 ## Reactive
 
-| Function | Description |
-|---|---|
-| `value` | Get or update the reactive value |
-| `setSilent()` | Update value without notifying listeners |
-| `toString()` | Returns debug string |
+| Function      | Description                  |
+| ------------- | ---------------------------- |
+| `value`       | Get or update reactive value |
+| `setSilent()` | Update without notifying     |
+| `toString()`  | Debug string                 |
 
 ---
 
 ## Watch
 
-| Property | Description |
-|---|---|
-| `builder` | Widget builder automatically tracked |
+| Property  | Description                 |
+| --------- | --------------------------- |
+| `builder` | Auto-tracked widget builder |
 
 ---
 
 ## ReactiveInjector
 
-| Function | Description |
-|---|---|
-| `singleton()` | Register singleton dependency |
-| `transient()` | Register transient dependency |
-| `find()` | Resolve dependency |
-| `isRegistered()` | Check if dependency exists |
-| `reset()` | Reset singleton instance |
-| `unregister()` | Remove dependency |
-| `clear()` | Remove all dependencies |
+| Function         | Description             |
+| ---------------- | ----------------------- |
+| `singleton()`    | Register singleton      |
+| `transient()`    | Register transient      |
+| `find()`         | Resolve dependency      |
+| `isRegistered()` | Check registration      |
+| `reset()`        | Reset singleton         |
+| `unregister()`   | Remove dependency       |
+| `clear()`        | Remove all dependencies |
 
 ---
 
 ## ReactivePagination
 
-| Function | Description |
-|---|---|
-| `init()` | Load first page |
-| `refresh()` | Reload from beginning |
-| `fetchMore()` | Load next page |
+| Function      | Description       |
+| ------------- | ----------------- |
+| `init()`      | Load first page   |
+| `refresh()`   | Reload pagination |
+| `fetchMore()` | Load next page    |
 
 ---
 
 ## ReactiveCursorPagination
 
-| Function | Description |
-|---|---|
-| `init()` | Load first page |
-| `refresh()` | Reload from beginning |
-| `fetchMore()` | Load next cursor page |
+| Function      | Description            |
+| ------------- | ---------------------- |
+| `init()`      | Load first cursor page |
+| `refresh()`   | Reload pagination      |
+| `fetchMore()` | Load next cursor page  |
 
 ---
 
-# Why reactive_flutter?
+## ReactiveSearch
 
-`reactive_flutter` focuses on simplicity.
+| Function      | Description      |
+| ------------- | ---------------- |
+| `onChanged()` | Debounced search |
+| `search()`    | Manual search    |
+| `clear()`     | Reset search     |
+| `results`     | Current results  |
+| `isLoading`   | Loading state    |
+| `isIdle`      | Idle state       |
+| `isEmpty`     | Empty state      |
+| `error`       | Current error    |
 
-Unlike larger state management solutions, it provides:
+---
 
-- Minimal API surface
-- Automatic dependency tracking
-- No boilerplate
-- No generators
-- No annotations
-- Lightweight architecture
-- Easy integration into existing apps
+## ReactiveIsolateTask
 
-Perfect for:
+| Function       | Description                      |
+| -------------- | -------------------------------- |
+| `run()`        | Run isolate task safely          |
+| `runOrThrow()` | Run isolate task and throw error |
+| `reset()`      | Reset task state                 |
+| `isLoading`    | Current loading state            |
+| `data`         | Latest task result               |
+| `error`        | Latest task error                |
 
-- Small apps
-- Medium apps
-- Prototypes
-- Utility apps
-- Feature modules
-- Developers who prefer minimalism
+
+## ReactiveLogger
+
+| Function       | Description       |
+| -------------- | ----------------- |
+| `debug()`      | Write debug log   |
+| `info()`       | Write info log    |
+| `warning()`    | Write warning log |
+| `error()`      | Write error log   |
+| `fatal()`      | Write fatal log   |
+| `clearFile()`  | Clear log file    |
+| `deleteFile()` | Delete log file   |
+| `readRaw()`    | Read raw log      |
+| `readLines()`  | Read log lines    |
 
 ---
 
@@ -554,12 +876,15 @@ Perfect for:
 
 ## Why it performs well
 
-- No reflection
-- No code generation
-- No runtime dependency graph building
-- Fine-grained rebuild tracking
-- Only widgets that access a reactive value rebuild
-- Conditional dependencies are handled automatically
+* No reflection
+* No code generation
+* Fine-grained rebuild tracking
+* Minimal allocations
+* Conditional dependency tracking
+* Only subscribed widgets rebuild
+* Background isolate execution for heavy operations
+* Large file parsing without blocking UI
+* Reactive async task state management
 
 ---
 
@@ -577,24 +902,53 @@ Automatic Rebuild
 
 ## How it works
 
-1. `Watch` starts dependency tracking.
-2. Any accessed `Reactive.value` registers itself.
-3. `Watch` subscribes only to accessed reactives.
-4. When a reactive changes, only subscribed widgets rebuild.
+1. `Watch` starts dependency tracking
+2. Accessed reactive values register themselves
+3. `Watch` subscribes only to used reactives
+4. Changed reactives rebuild subscribed widgets
 
 ---
 
 # Comparison
 
-| Feature | reactive_flutter | GetX | Riverpod | Provider |
-|---|---|---|---|---|
-| Auto tracking | ✅ | ⚠️ Partial | ❌ | ❌ |
-| Code generation | ❌ | ❌ | ⚠️ Optional | ❌ |
-| Boilerplate | Very Low | Low | Medium | Medium |
-| Dependency injection | ✅ | ✅ | ❌ | ❌ |
-| Pagination helpers | ✅ | ❌ | ❌ | ❌ |
-| Learning curve | Easy | Easy | Medium | Easy |
-| Lightweight | ✅ | ⚠️ | ⚠️ | ✅ |
+| Feature                    | reactive_flutter | GetX       | Riverpod    | Provider |
+| -------------------------- | ---------------- | ---------- | ----------- | -------- |
+| Auto tracking              | ✅                | ⚠️ Partial | ❌           | ❌        |
+| Code generation            | ❌                | ❌          | ⚠️ Optional | ❌        |
+| Boilerplate                | Very Low         | Low        | Medium      | Medium   |
+| Dependency injection       | ✅                | ✅          | ❌           | ❌        |
+| Pagination helpers         | ✅                | ❌          | ❌           | ❌        |
+| Reactive search            | ✅                | ❌          | ❌           | ❌        |
+| Reactive logger            | ✅                | ❌          | ❌           | ❌        |
+| Reactive isolate tasks     | ✅                | ❌          | ❌           | ❌        |
+| Automatic rebuild tracking | ✅                | ⚠️ Partial | ❌           | ❌        |
+| Zero-config watchers       | ✅                | ⚠️         | ❌           | ❌        |
+| Learning curve             | Easy             | Easy       | Medium      | Easy     |
+| Lightweight                | ✅                | ⚠️         | ⚠️          | ✅        |
+| No BuildContext access     | ✅                | ✅          | ✅           | ❌        |
+
+---
+
+# Best Practices
+
+* Keep reactive values focused and small
+* Prefer multiple small reactives
+* Use nested `Watch` widgets for granular rebuilds
+* Dispose controllers when needed
+* Avoid unnecessary global state
+
+---
+
+# When to Use reactive_flutter
+
+`reactive_flutter` works especially well for:
+
+* Small to medium apps
+* Utility applications
+* MVPs & prototypes
+* Admin panels
+* Feature modules
+* Teams preferring lightweight architecture
 
 ---
 
@@ -604,7 +958,7 @@ Automatic Rebuild
 final Reactive<List<String>> todos = Reactive<List<String>>([]);
 
 void addTodo(String value) {
-  todos.value = [...todos.value, value];
+  todos.value = [ ...todos.value, value ];
 }
 
 void removeTodo(String value) {
@@ -614,118 +968,21 @@ void removeTodo(String value) {
 
 ---
 
-# Nested Watch Example
-
-```dart
-Watch(
-  builder: () {
-    return Column(
-      children: [
-        Watch(
-          builder: () {
-            return Text(counter.value.toString());
-          },
-        ),
-        Watch(
-          builder: () {
-            return Text(title.value);
-          },
-        ),
-      ],
-    );
-  },
-)
-```
-
----
-
-# Scroll Pagination Example
-
-```dart
-class UsersPage extends StatefulWidget {
-  const UsersPage({super.key});
-
-  @override
-  State<UsersPage> createState() => _UsersPageState();
-}
-
-class _UsersPageState extends State<UsersPage> {
-  final ScrollController _controller = ScrollController();
-
-  final ReactivePagination<User> pagination = ReactivePagination<User>(
-    perPage: 20,
-    fetcher: (page, limit) async {
-      return api.fetchUsers(page, limit);
-    },
-  );
-
-  @override
-  void initState() {
-    super.initState();
-
-    pagination.init();
-
-    _controller.addListener(() {
-      if (_controller.position.pixels >=
-          _controller.position.maxScrollExtent - 200) {
-        pagination.fetchMore();
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Watch(
-      builder: () {
-        return ListView.builder(
-          controller: _controller,
-          itemCount: pagination.items.length,
-          itemBuilder: (context, index) {
-            final user = pagination.items[index];
-
-            return ListTile(
-              title: Text(user.name),
-            );
-          },
-        );
-      },
-    );
-  }
-}
-```
-
----
-
 # Unit Testing Example
 
 ```dart
 void main() {
-  test('Reactive value updates correctly', () {
-    final Reactive<int> counter = Reactive<int>(0);
+  test(
+    'Reactive value updates correctly',
+    () {
+      final Reactive<int> counter = Reactive<int>(0);
 
-    counter.value = 5;
+      counter.value = 5;
 
-    expect(counter.value, 5);
-  });
-}
-```
-
----
-
-# Dependency Injection Example
-
-```dart
-class ApiService {
-  String get title => 'Reactive State';
-}
-
-void setupDependencies() {
-  ReactiveInjector.singleton<ApiService>(
-    () => ApiService(),
+      expect(counter.value, 5);
+    },
   );
 }
-
-final ApiService api = ReactiveInjector.find<ApiService>();
 ```
 
 ---
@@ -734,7 +991,9 @@ final ApiService api = ReactiveInjector.find<ApiService>();
 
 ## Does this use code generation?
 
-No. `reactive_flutter` works without generators or build_runner.
+No.
+
+`reactive_flutter` works without generators or build_runner.
 
 ---
 
@@ -750,13 +1009,12 @@ Only widgets subscribed to changed reactive values rebuild.
 
 Yes.
 
-You can integrate it with:
+Works well with:
 
-- Clean Architecture
-- MVVM
-- MVC
-- Feature-first architecture
-- Existing Provider/Riverpod/GetX apps
+* Clean Architecture
+* MVVM
+* MVC
+* Feature-first architecture
 
 ---
 
@@ -764,7 +1022,7 @@ You can integrate it with:
 
 Yes.
 
-You can store Futures, async results, pagination state, and API responses inside reactive values.
+You can store async results, pagination state, and API responses inside reactive values.
 
 ---
 
@@ -772,20 +1030,25 @@ You can store Futures, async results, pagination state, and API responses inside
 
 Yes.
 
-The library is designed to be lightweight, predictable, and suitable for production applications.
+The library is designed to be lightweight, predictable, and production friendly.
 
 ---
 
 # Roadmap
 
-- [ ] Computed reactive values
-- [ ] Reactive collections
-- [ ] DevTools integration
-- [ ] Async reactive helpers
-- [ ] Stream bindings
-- [ ] Form utilities
-- [ ] Persistent storage helpers
-- [ ] Flutter Web optimizations
+Planned future improvements:
+
+* [ ] Computed reactive values
+* [ ] Reactive collections
+* [ ] DevTools integration
+* [ ] Async reactive helpers
+* [ ] Stream bindings
+* [ ] Form utilities
+* [ ] Persistent storage helpers
+* [ ] Flutter Web optimizations
+* [ ] Isolate task pooling
+* [ ] Parallel isolate execution helpers
+* [ ] Cancelable isolate tasks
 
 ---
 
@@ -815,8 +1078,6 @@ dart format .
 
 ---
 
-
 # License
 
-MIT License
-
+MIT License © V Developer

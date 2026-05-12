@@ -1,10 +1,23 @@
-import 'package:example/pagination_list_view_page.dart';
-import 'package:example/second_counter_page.dart';
+import 'package:example/pages/heavy_isolate_example_page.dart';
+import 'package:example/pages/logger_example_page.dart';
+import 'package:example/pages/pagination_list_view_page.dart';
+import 'package:example/pages/search_page.dart';
+import 'package:example/pages/second_counter_page.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_flutter/reactive_flutter.dart';
 
-void main() {
+final ReactiveLogger logger = ReactiveLogger(
+  fileName: 'example',
+  clearPolicy: ClearPolicy.daily,
+  minLevel: LogLevel.debug,
+  printToConsole: true,
+);
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   CounterController.register();
+
+  await logger.init();
   runApp(const MyApp());
 }
 
@@ -15,8 +28,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Reactive State Example',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: Colors.deepPurple,
+          selectionColor: Colors.deepPurple.withValues(alpha: 0.3),
+          selectionHandleColor: Colors.deepPurple,
+        ),
+      ),
       home: const MyHomePage(title: 'Reactive State Example'),
+
+      // builder: (context, child) {
+      //   return LoggerOverlay(logger: logger, child: child ?? SizedBox.shrink());
+      // },
     );
   }
 }
@@ -75,6 +99,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   child: Text('Reactive Pagination'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SearchPage()),
+                    );
+                  },
+                  child: Text('Reactive Search'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoggerExamplePage(),
+                      ),
+                    );
+                  },
+                  child: Text('Reactive Logger'),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HeavyIsolateExamplePage(),
+                      ),
+                    );
+                  },
+                  child: Text('Reactive Isolate'),
                 ),
               ],
             ),
